@@ -1,0 +1,48 @@
+<div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
+  <div class="uk-offcanvas-bar">
+
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+      <div class="uk-divider-icon uk-margin-large"></div>
+      
+      <ul class="uk-nav uk-nav-default">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+                <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                    <a href="#">
+                        {{ .Pre }}
+                        <span>{{ .Name }}</span>
+                    </a>
+      
+                    <ul class="uk-nav-sub">
+                    {{ range .Children }}
+                        <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                            <a href="{{ .URL }}">{{ .Name }}</a>
+                        </li>
+                    {{ end }}
+                  </ul>
+            </li>
+            {{ else }}
+                <li>
+                    <a href="{{ .URL }}">
+                        {{ .Pre }}
+                        <span>{{ .Name }}</span>
+                    </a>
+                </li>
+            {{ end }}
+        {{ end }}
+      </ul>
+
+      <hr class="uk-divider-icon uk-margin-large">
+
+      <ul class="uk-iconnav uk-nav uk-nav-default">
+        {{ range .Site.Params.social }}
+        <li><a href="{{ .url }}" target="_blank" uk-icon="icon: {{ .name }}; ratio: 1.3"></a></li>
+        {{ end }}
+      </ul>
+
+  </div>
+</div>
+
+

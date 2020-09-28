@@ -1,0 +1,5 @@
+
+{{- range $i, $e := .Params.authors -}}
+{{- if $i -}}, {{ end -}}
+<a class="uk-link-text" href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+{{- end -}}

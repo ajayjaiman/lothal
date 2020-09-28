@@ -1,0 +1,78 @@
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+
+  {{ with .Params.description }}
+  <meta name="description" content="{{ . }}">
+  {{ else }}
+  <meta name="description" content="{{ .Summary | plainify }}">
+  {{ end }}
+
+  {{ if .Params.authors }} 
+  <meta name="author" content='{{- delimit .Params.authors ", " ", and " -}}'>
+  {{ end }}
+
+  {{ range .AlternativeOutputFormats -}}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+  {{ end -}}
+
+  <!-- Start of Open Graph -->
+  <meta property="og:title" content="{{ .Title }}">
+  {{ if .IsPage }}
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02" }}">
+  {{ else }}
+  <meta property="og:type" content="website">
+  {{ end }}
+  
+  {{ with .Params.description }}
+    <meta property="og:description" content="{{ . }}">
+  {{ else }}
+    <meta property="og:description" content="{{ .Summary | plainify }}">
+  {{ end }}
+
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  {{ if .Params.image }}
+  <meta property="og:image" content="{{ .Site.BaseURL }}media/{{ .Params.image }}">
+  {{ end }}
+  {{ range .Params.tags }}
+  <meta property="og:tags" content="{{ . }}">
+  {{ end }}
+  <!-- End of Open Graph -->
+
+  <!-- Start of Twitter -->
+  {{ if .Site.Params.twitter_card_whitelisted }}
+      {{ if .Params.twitter_summary }}
+  <meta property="twitter:card" content="{{ .Params.twitter_summary }}">
+      {{ else if .Description }}
+  <meta property="twitter:card" content="{{ .Description }}">
+      {{ else }}
+  <meta property="twitter:card" content="{{ .Title }}">
+      {{ end }}
+  {{ end }}
+
+  {{ with .Params.description }}
+    <meta property="twitter:description" content="{{ . }}">
+  {{ else }}
+    <meta property="twitter:description" content="{{ .Summary | plainify }}">
+  {{ end }}
+
+  <meta property="twitter:title" content="{{ .Title }}">
+  {{ if .Params.image }}
+  <meta property="twitter:image" content="{{ .Site.BaseURL }}media/{{ .Params.image }}">
+  {{ end }}
+  <!-- End of Twitter -->
+
+
+  {{ partial "favicons.html" . }}
+
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  {{ $style := resources.Get "css/site.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+  {{ with .OutputFormats.Get "rss" -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+</head>

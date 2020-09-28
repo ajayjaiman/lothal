@@ -1,0 +1,31 @@
+//
+// Fonts
+//
+
+$global-font-family: 'Raleway', sans-serif;
+$base-heading-font-family: 'Anton', sans-serif;
+$global-font-size: 18px !default;
+
+//
+// Colors
+//
+
+
+//UI kit
+$global-color:                                   #666 !default;
+$global-emphasis-color:                          #333 !default;
+$global-muted-color:                             #999 !default;
+$global-link-color:                              #1da2d8 !default;
+$global-link-hover-color:                        #f5ce2c !default;
+$global-inverse-color:                           #fff !default;
+$text-muted-color:                               #999 !default;
+
+
+// Backgrounds
+$global-background:                              #fff !default;
+$global-muted-background:                        #76b6c4 !default;
+$global-primary-background:                      #f5ce2c !default;
+$global-secondary-background:                    #064273 !default;
+$global-success-background:                      #7fcdff !default;
+$global-warning-background:                      lighten(#f5ce2c, 5%) !default;
+$global-danger-background:                       #fc4a1a !default;

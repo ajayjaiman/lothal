@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+<div class="uk-container uk-container-large uk-margin-large-top">
+  <h1> List of all Authros </h1>
+  <p>[Listed alphabeticaly]</p>
+  <ul class="uk-list ">
+    {{ range .Data.Pages }}
+        <li><h3><a href="{{ .Permalink }}">{{ .Params.name }}</a></h3></li>
+    {{ end }}
+  </ul>
+</div>
+
+{{ end }}

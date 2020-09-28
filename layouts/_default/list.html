@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+  <div class="uk-container uk-container-xlarge uk-margin-large-top">
+
+    {{ if eq .Type  "tags" }}
+    <h1> All stories tagged with "{{ .Title }}" </h1>
+    {{ end }}
+
+    {{ if eq .Type  "categories" }}
+    <h1> All stories filed under "{{ .Title }}" </h1>
+    {{ end }}
+    
+    <!-- loop -->
+    {{ range .Paginator.Pages.ByDate.Reverse }}
+      {{ .Render "card"}}
+    {{ end }}
+    <!-- /loop  -->
+
+    {{ partial "pagination.html" . }}
+  
+  </div>
+
+{{ end }}

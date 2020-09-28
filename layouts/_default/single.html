@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<div class="uk-container uk-container-xlarge uk-margin-medium-top">
+{{ partial "cover-hero-image.html" . }}
+
+<div class="uk-container uk-container-small uk-margin-medium-top">
+    <div class="uk-card uk-card-default uk-card-large uk-card-body {{ if .Params.cover }} margin-xlarge-top-negative {{ end }} uk-margin-large-bottom">
+      <h1 class="uk-heading-small">{{ .Title }}</h1>
+      <hr>
+      <p>{{ .Content }}</p>
+      <hr class="uk-divider-icon">
+      <p class="uk-text-small uk-margin-large-top">
+        <strong>First published on {{ .PublishDate.Format "January 2, 2006" }}</strong></p>
+    </div>
+  </div> 
+</div>
+
+{{ end }}

@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+{{ partial "cover-hero-image.html" . }}
+
+<div class="uk-container uk-container-small uk-margin-medium-top">
+    <div class="uk-card uk-card-default uk-card-large uk-card-body {{ if .Params.cover }} margin-xlarge-top-negative {{ end }} uk-margin-large-bottom">
+      <h1 class="uk-heading-small">{{ .Title }}</h1>
+      <p class="uk-text-meta">
+        {{ partial "link-authors.html" . }} | {{ .PublishDate.Format "January 2, 2006" }} | 
+        {{ .WordCount }} words | 
+        {{ .ReadingTime }} minutes
+      </p>
+      <hr>
+      <p>{{ .Content }}</p>
+      <hr class="uk-divider-icon">
+      <p class="uk-text-small uk-margin-large-top">
+        <strong>First published on {{ .PublishDate.Format "January 2, 2006" }}</strong><br> 
+        {{ partial "link-categories.html" . }}, {{ partial "link-tags.html" . }}</p>
+      {{ $related := .Site.RegularPages.Related . | first 5 }}
+      {{ with $related }}
+      <p><strong>You may also be interested in these related posts:</strong><br>
+        {{ range . }}
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a><br>
+        {{ end }}
+      </p>
+      {{ end }}
+    </div>
+  </div> 
+</div>
+
+{{ end }}

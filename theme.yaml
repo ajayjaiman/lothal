@@ -1,0 +1,13 @@
+name = "Lothal"
+license = "MIT"
+licenselink = "https://github.com/ajayjaiman/lothal/blob/master/LICENSE"
+description = ""
+homepage = "https://impellio.com/themes/hugo/lothal"
+tags = [uikit, responsive, blog, simple, clean, social media]
+features = [uikit, responsive, blog, simple, clean, social media]
+min_version = "0.41"
+
+[author]
+  name = "Ajay Jaiman"
+  homepage = "https://jaiman.org/"
+

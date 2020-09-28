@@ -1,0 +1,19 @@
+<div class="uk-container uk-container-xlarge uk-margin-medium-top">
+  {{ partial "cover-hero-image.html" . }}
+
+  <div class="uk-container uk-container-small uk-margin-medium-top">
+    <div class="uk-card uk-card-default uk-card-large uk-card-body uk-margin-large-bottom">
+      <h2 class="uk-heading-small"><a href={{ .Permalink }}>{{ .Title }}</a></h2>
+      <p class="uk-text-meta">
+        {{ partial "link-authors.html" . }} | {{ .PublishDate.Format "January 2, 2006" }} | 
+        {{ .WordCount }} words | 
+        {{ .ReadingTime }} minutes
+      </p>
+      <hr>
+      <p>{{ .Summary }} 
+      <p><span class="uk-text-bold"><a href={{ .Permalink }}>Continue reading...</a> </span></p>
+      <hr class="uk-divider-icon">
+      <p > {{ partial "link-categories.html" . }}, {{ partial "link-tags.html" . }}</p>
+    </div>
+  </div>
+</div>

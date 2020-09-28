@@ -1,0 +1,47 @@
+// IMPORT LOTHAL VARIABLES
+//----------------------------------
+@import "lothal-variables.scss";
+
+// IMPORT THE UIKIT3 + THE DEFAULT THEME
+//----------------------------------
+
+//Import default variables and available mixins.
+@import "uikit/variables-theme.scss";
+@import "uikit/mixins-theme.scss";
+
+// Import UIkit Theme
+@import "uikit/uikit-theme.scss";
+
+
+.margin-xlarge-bottom-negative {
+  margin-bottom: -40px;
+}
+
+.cover-image {
+  max-height: 40vh;
+}
+
+@media only screen and (min-width: 960px) {
+  .margin-xlarge-bottom-negative {
+    margin-bottom: -150px;
+  }
+
+  .full-width-image {
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+    position: relative;
+    right: 50%;
+    width: 100vw;
+  }
+
+}
+
+figcaption {
+  background-color: $global-emphasis-color;
+  color: white;
+  font-style: italic;
+  padding: 2px;
+  text-align: center;
+}

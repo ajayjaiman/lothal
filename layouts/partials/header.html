@@ -1,0 +1,48 @@
+<div class="uk-container-expand uk-background-secondary">
+  <nav class="uk-container uk-container-xlarge uk-background-secondary" uk-navbar>
+  
+    <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo" href="/" aria-label="Go to Home page">
+        <img data-src="/images/lothal-logo.png" data-srcset="/images/lothal-logo.png 185w, /images/lothal-logo@2x.png 370w" width="185" alt="Lothal Logo" uk-img>
+    </a>
+    </div>
+
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav uk-visible@m">
+          {{ $currentPage := . }}
+          {{ range .Site.Menus.main }}
+              {{ if .HasChildren }}
+                  <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                      <a href="#">
+                          {{ .Pre }}
+                          <span>{{ .Name }}</span>
+                      </a>
+        
+                  <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      {{ range .Children }}
+                          <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                              <a href="{{ .URL }}">{{ .Name }}</a>
+                          </li>
+                      {{ end }}
+                    </ul>
+                  </div>
+              </li>
+              {{ else }}
+                  <li>
+                      <a href="{{ .URL }}">
+                          {{ .Pre }}
+                          <span>{{ .Name }}</span>
+                      </a>
+                  </li>
+              {{ end }}
+          {{ end }}
+        </ul>
+
+        
+        <div class="uk-navbar-item">
+          <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" data-uk-toggle="" data-uk-navbar-toggle-icon="" href="#offcanvas-flip"></a>
+        </div>
+    </div>
+  </nav>
+</div>

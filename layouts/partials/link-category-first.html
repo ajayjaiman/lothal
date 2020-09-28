@@ -1,0 +1,3 @@
+{{- range first 1 (.GetTerms "categories") -}}
+  <a class="uk-link-text"  href="{{ .Permalink }}">{{- .LinkTitle -}}</a>
+{{- end -}}

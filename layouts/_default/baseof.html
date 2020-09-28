@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+    <html lang="{{ .Site.Params.languageCode }}">
+    {{ partial "head.html" . }}
+    <body>
+        <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        {{ partial "header.html" . }}
+    
+        {{ block "main" . }}{{ end }}
+
+        {{ partial "footer.html" . }}
+        {{ partial "offcanvas-menu.html" . }}
+        {{ partial "foot.html" . }}
+    </body>
+</html>

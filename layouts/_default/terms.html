@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+  <div class="uk-container uk-container-xlarge uk-margin-large-top">
+    <h1> List of all {{ lower .Title }} </h1>
+    <p>[Listed alphabeticaly]</p>
+    <ul class="uk-list uk-list-divider">
+      {{ range .Data.Terms.Alphabetical }}
+          <li><h3><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> <span class="uk-badge uk-margin-left">{{ .Count }}</span></h3></li>
+      {{ end }}
+    </ul>
+  </div>
+
+{{ end }}

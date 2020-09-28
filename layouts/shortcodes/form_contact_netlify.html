@@ -1,0 +1,25 @@
+<form name="{{ .Site.Params.netlify_form }}" method="POST" data-netlify="true">
+
+  <fieldset class="uk-fieldset">
+      <div class="uk-margin">
+          <input class="uk-input" type="text" placeholder="Name" name="name">
+      </div>
+
+      <div class="uk-margin">
+          <input class="uk-input" type="text" placeholder="Email" name="email">
+      </div>
+
+      <div class="uk-margin">
+          <input class="uk-input" type="text" placeholder="Subject" name="subject">
+      </div>
+
+      <div class="uk-margin">
+          <textarea class="uk-textarea" rows="5" placeholder="Your message" name="message"></textarea>
+      </div>
+  </fieldset>
+
+  <button class="uk-button uk-button-secondary">Send message</button>
+
+</form>
+
+

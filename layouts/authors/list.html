@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="uk-container uk-container-xlarge uk-margin-large-top article-body">
+
+  <h1>{{ .Params.name }}</h1>
+
+  <img src="{{ .Params.photo }}" alt=""/>
+
+  <h2>About</h2>
+  {{ .Content }}
+
+  <h2>Posts</h2>
+  <ul class="uk-list ">
+  {{ range .Data.Pages }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+  </ul>
+
+</div>
+{{ end }}

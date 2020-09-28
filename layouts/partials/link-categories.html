@@ -1,0 +1,4 @@
+{{- range $i, $e := (.GetTerms "categories") -}}
+{{- if $i -}}, {{ end -}}
+  <a class="uk-link-text" href="{{ .Permalink }}">#{{- .LinkTitle -}}</a>
+{{- end -}}
