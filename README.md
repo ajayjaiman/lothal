@@ -1,9 +1,18 @@
-# Lothal: A simple and clean blog theme with hero images for Hugo
+# Lothal: A Hugo theme for a responsive blog with hero images
 
 ![Lothal theme screenshot](/images/screenshot.png "Screenshot")
 
 ## Live demo
-[Live demo](https:/www.x.com)
+[Live demo](https://lothal.netlify.app)
+
+## Key features:
+- Fast loading : Lighthouse scores of 90 for mobile and 98 for desktop (last checked on September 28, 2020)
+- Fast and responsive website for multiple device sizes
+- Hero images for each post (can be disabled)
+- Lazy loading, responsive images 
+- Multiple shortcodes: for embeded images, youtube videos, netlify contact form...
+- Social media icons
+
 
 ## How to get it the theme to work
 ---
@@ -33,6 +42,18 @@ menu:
     url: /posts/
     weight: -110
 ```
+
+#### Add the logo file
+Add the logo files to the static folder and add details to the config file like this
+```
+params:
+  logo:
+      url2x: "/images/lothal-logo@2x.png"
+      width2x: 370
+      url: "/images/lothal-logo.png"
+      width: 185 
+```
+
 #### Define up the main sections that you wish to show on the home page
 Example of main sections (under params)
 ```
@@ -104,19 +125,18 @@ description: "This is a test description."
 ### Netlify
 This theme can be deployed to Netlify
 
-If you swish to use the Netlifiy form then define the form name in config file under params
+If you wish to use the Netlifiy form then define the form name in config file under params
 ```
 params:
  netlify_form: "portlothal"
 ```
-
 
 ### License
 Coder is licensed under the MIT license.
 
 ### Maintenance
 
-This theme is maintained by its author Ajay Jaiman 
+This theme is maintained by its author [Ajay Jaiman](https://www.jaiman.org)
 
 ### Special Thanks
 

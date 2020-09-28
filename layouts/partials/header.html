@@ -2,9 +2,13 @@
   <nav class="uk-container uk-container-xlarge uk-background-secondary" uk-navbar>
   
     <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="/" aria-label="Go to Home page">
-        <img data-src="/images/lothal-logo.png" data-srcset="/images/lothal-logo.png 185w, /images/lothal-logo@2x.png 370w" width="185" alt="Lothal Logo" uk-img>
-    </a>
+      {{ with .Site.Params.logo }}
+        <a class="uk-navbar-item uk-logo" href="/" aria-label="Go to Home page">
+        <img data-src="{{ $.Site.Params.logo.url }}" data-srcset="{{ $.Site.Params.logo.url }} {{ $.Site.Params.logo.width }}w, {{ $.Site.Params.logo.url2x }} {{ $.Site.Params.logo.width2x }}w" width="{{ $.Site.Params.logo.width }}" alt="Logo" uk-img>
+      </a>
+      {{ else }}
+        <a class="uk-navbar-item uk-logo text-logo" href="/" aria-label="Go to Home page"><h3 class="uk-text-primary">{{ .Site.Title }}</h3></a>
+      {{ end }}
     </div>
 
     <div class="uk-navbar-right">

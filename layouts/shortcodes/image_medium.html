@@ -9,14 +9,16 @@
 {{ with $image }}
 
 	{{ $small := ($image.Resize "320x q60") }}
-	{{ $medium := ($image.Resize "600x q60") }}
+	{{ $medium := ($image.Resize "700x q60") }}
+	{{ $large := ($image.Resize "1200x q60") }}
 
 	<figure class="image-medium">
 		<a href="{{ $image.RelPermalink }}" aria-label="Link to larger image">
 		<img data-src="{{ $medium.RelPermalink }}" 
 		srcset="
 		{{ $small.RelPermalink }} 320w,
-		{{ $medium.RelPermalink }} 600w"
+		{{ $medium.RelPermalink }} 700w, 
+		{{ $large.RelPermalink }} 1200w"
 		alt= "{{ $caption }}" 
 		uk-img>
 		</a>

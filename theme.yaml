@@ -2,9 +2,9 @@ name = "Lothal"
 license = "MIT"
 licenselink = "https://github.com/ajayjaiman/lothal/blob/master/LICENSE"
 description = ""
-homepage = "https://impellio.com/themes/hugo/lothal"
-tags = [uikit, responsive, blog, simple, clean, social media]
-features = [uikit, responsive, blog, simple, clean, social media]
+homepage = "https://impellio.com/themes/lothal"
+tags = [responsive, blog, lazy-loading images, responsive images,  simple, clean, social media, uikit ]
+features = [responsive, blog, lazy-loading images, responsive images,  simple, clean, social media, uikit ]
 min_version = "0.41"
 
 [author]
