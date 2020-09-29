@@ -1,0 +1,24 @@
+{{ if .Params.cover }}
+  {{ $page := . }}
+  {{ with .Site.GetPage "section" .Site.Params.common_media_folder }}
+    {{ $image := (.Resources.ByType "image").GetMatch $page.Params.cover }}
+    {{ with $image }}
+
+      {{ $small := (.Fill "320X160 Center q60") }}
+      {{ $medium := (.Fill "700x350 Center q60") }}
+      {{ $large := (.Fill "1000x500 Center q60") }}
+      {{ $xlarge := (.Fill "1600x533 Center q60") }}
+    
+      <div class="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-dark uk-background-secondary margin-xlarge-bottom-negative cover-image"
+          data-src="{{ $large.RelPermalink }}"
+          data-srcset="{{ $small.RelPermalink }} 320w,
+                      {{ $medium.RelPermalink }} 700w,
+                      {{ $large.RelPermalink }} 1200w,
+                      {{ $xlarge.RelPermalink }} 1600w"
+          alt="{{ $.Title }}"  
+          uk-img>
+      </div>
+
+      {{ end }}
+  {{ end }}
+{{ end }}

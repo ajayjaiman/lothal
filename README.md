@@ -16,8 +16,33 @@
 
 ## How to get it the theme to work
 ---
-1. Copy the lothal folder into the theme folder
-2. Register the theme in the config folder: theme: lothal
+1. Create a themes folder (if it doesn't already exist)
+2. Clone the them into the themes directory
+```
+git clone https://github.com/ajayjaiman/lothal.git
+```
+You could also downlaod and copy the theme into the themes folder
+3. Register the theme in the config folder: theme: lothal
+
+## Managing responsive & lazy loading images and also hero images 
+### If deploying through Forestry
+- Create a media folder in the content folder 
+- Add an _index.md file in it with the following content
+```
+---
+title: Media 
+url: "/media"
+---
+```
+- Add the following in the site params
+```
+  common_media-folder: "media"
+```
+PS: You can name the media folder "media" or "images" or something else, just remember to change the value in the params
+
+### If 'NOT' deploying through Forestry
+You can continue to follow the above method of keeping all mages in one folder or the default Hugo method of keeping images in the post bundle. If you wish to keep the default Hugo bundle remember to comment out common_image_folder param in the params.
+
 
 ## Add the features you need in the config file:
 ---

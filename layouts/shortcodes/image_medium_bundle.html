@@ -1,0 +1,34 @@
+{{/* 
+	This shortcode accepts an image name
+	The image should be in the same folder as the post
+*/}}
+
+{{ $image := .Page.Resources.GetMatch (printf "%s" (.Get 0)) }}
+{{ $caption := .Get 1 }}
+
+{{ with $image }}
+
+	{{ $small := ($image.Resize "320x q60") }}
+	{{ $medium := ($image.Resize "700x q60") }}
+	{{ $large := ($image.Resize "1200x q60") }}
+
+	<figure class="image-medium">
+		<a href="{{ $image.RelPermalink }}" aria-label="Link to larger image">
+		<img data-src="{{ $medium.RelPermalink }}" 
+		srcset="
+		{{ $small.RelPermalink }} 320w,
+		{{ $medium.RelPermalink }} 700w, 
+		{{ $large.RelPermalink }} 1200w"
+		alt= "{{ $caption }}" 
+		uk-img>
+		</a>
+		{{ if  $caption }}
+		<figcaption>
+			{{ $caption | markdownify }}
+		</figcaption>
+		{{ end }} 
+	</figure> 
+{{ end }}
+
+
+

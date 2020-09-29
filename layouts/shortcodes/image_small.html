@@ -3,25 +3,28 @@
 	The image should be in the same folder as the post
 */}}
 
+{{ $page := . }}
+{{ with .Site.GetPage "section" "media" }}
 
-{{ $image := .Page.Resources.GetMatch (printf "%s" (.Get 0)) }}
-{{ $caption := .Get 1 }}
+	{{ $image := (.Resources.ByType "image").GetMatch (printf "%s" ($page.Get 0)) }}
+	{{ $caption := $page.Get 1 }}
 
-{{ with $image }}
-	{{ $small := ($image.Resize "320x q60") }}
-	<figure class="uk-width-medium uk-align-left@s">
-		<a href="{{ $image.RelPermalink }}" aria-label="Link to larger image">
-		<img data-src="{{ $small.RelPermalink }}"
-		width="{{ $small.Width }}" height="{{ $small.Height }}"
-		alt= "{{ $caption }}" 
-		uk-img>
-		</a>
-		{{ if  $caption }}
-		<figcaption>
-			{{ $caption | markdownify }}
-		</figcaption>
-		{{ end }} 
-	</figure> 
+	{{ with $image }}
+		{{ $small := ($image.Resize "320x q60") }}
+		<figure class="uk-width-medium uk-align-left@s">
+			<a href="{{ $image.RelPermalink }}" aria-label="Link to larger image">
+			<img data-src="{{ $small.RelPermalink }}"
+			width="{{ $small.Width }}" height="{{ $small.Height }}"
+			alt= "{{ $caption }}" 
+			uk-img>
+			</a>
+			{{ if  $caption }}
+			<figcaption>
+				{{ $caption | markdownify }}
+			</figcaption>
+			{{ end }} 
+		</figure> 
+	{{ end }}
 {{ end }}
 
 

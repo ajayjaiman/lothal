@@ -1,6 +1,6 @@
 {{ if .Params.cover }}
   {{ $image := .Page.Resources.GetMatch (printf "%s" (.Params.cover)) }}
-    {{ with $image }}
+  {{ with $image }}
 
     {{ $small := (.Fill "320X160 Center q60") }}
     {{ $medium := (.Fill "700x350 Center q60") }}
@@ -13,9 +13,9 @@
                     {{ $medium.RelPermalink }} 700w,
                     {{ $large.RelPermalink }} 1200w,
                     {{ $xlarge.RelPermalink }} 1600w"
-       alt="{{ $.Title }}"  
+        alt="{{ $.Title }}"  
         uk-img>
     </div>
-    
-    {{ end }}
+  
   {{ end }}
+{{ end }}

@@ -1,0 +1,6 @@
+{{ if .Site.Params.common_media_folder }}
+{{ partial "hero-image-media-folder.html" . }}
+{{ else }}
+{{ partial "hero-image-bundle.html" . }}
+{{ end }}
+
