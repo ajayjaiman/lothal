@@ -16,7 +16,7 @@
           {{ $currentPage := . }}
           {{ range .Site.Menus.main }}
               {{ if .HasChildren }}
-                  <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                  <li class="{{ if $currentPage.HasMenuCurrent "main" . }}uk-active{{ end }}">
                       <a href="#">
                           {{ .Pre }}
                           <span>{{ .Name }}</span>
@@ -25,7 +25,7 @@
                   <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                       {{ range .Children }}
-                          <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                          <li class="{{ if $currentPage.IsMenuCurrent "main" . }}uk-active{{ end }}">
                               <a href="{{ .URL }}">{{ .Name }}</a>
                           </li>
                       {{ end }}

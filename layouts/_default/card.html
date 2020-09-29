@@ -5,7 +5,7 @@
     <div class="uk-card uk-card-default uk-card-large uk-card-body ">
       <h2 class="uk-heading-small"><a href={{ .Permalink }}>{{ .Title }}</a></h2>
       <p class="uk-text-meta">
-        {{ partial "link-authors.html" . }} | {{ .PublishDate.Format "January 2, 2006" }} | 
+        {{ partial "link-authors.html" . }} {{ .PublishDate.Format "January 2, 2006" }} | 
         {{ .WordCount }} words | 
         {{ .ReadingTime }} minutes
       </p>
