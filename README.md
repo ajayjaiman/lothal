@@ -88,6 +88,11 @@ params:
     - "docs"
 ```
 
+#### Define Google Analytics id in config
+```
+params:
+  google_analytics: "A-RANDOM-ID"
+```
 #### Define the social links in the config
 Example of social media links
 ```

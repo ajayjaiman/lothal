@@ -5,26 +5,26 @@
   <title>{{ .Title }} | {{ .Site.Title }}</title>
 
   {{ with .Params.description }}
-  <meta name="description" content="{{ . }}">
+    <meta name="description" content="{{ . }}">
   {{ else }}
-  <meta name="description" content="{{ .Summary | plainify }}">
+    <meta name="description" content="{{ .Summary | plainify }}">
   {{ end }}
 
   {{ if .Params.authors }} 
-  <meta name="author" content='{{- delimit .Params.authors ", " ", and " -}}'>
+    <meta name="author" content='{{- delimit .Params.authors ", " ", and " -}}'>
   {{ end }}
 
   {{ range .AlternativeOutputFormats -}}
-  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
   {{ end -}}
 
   <!-- Start of Open Graph -->
   <meta property="og:title" content="{{ .Title }}">
   {{ if .IsPage }}
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02" }}">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02" }}">
   {{ else }}
-  <meta property="og:type" content="website">
+    <meta property="og:type" content="website">
   {{ end }}
   
   {{ with .Params.description }}
@@ -36,22 +36,22 @@
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:site_name" content="{{ .Site.Title }}">
   {{ if .Params.image }}
-  <meta property="og:image" content="{{ .Site.BaseURL }}media/{{ .Params.image }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}media/{{ .Params.image }}">
   {{ end }}
   {{ range .Params.tags }}
-  <meta property="og:tags" content="{{ . }}">
+    <meta property="og:tags" content="{{ . }}">
   {{ end }}
   <!-- End of Open Graph -->
 
   <!-- Start of Twitter -->
   {{ if .Site.Params.twitter_card_whitelisted }}
       {{ if .Params.twitter_summary }}
-  <meta property="twitter:card" content="{{ .Params.twitter_summary }}">
+        <meta property="twitter:card" content="{{ .Params.twitter_summary }}">
       {{ else if .Description }}
-  <meta property="twitter:card" content="{{ .Description }}">
+        <meta property="twitter:card" content="{{ .Description }}">
       {{ else }}
   <meta property="twitter:card" content="{{ .Title }}">
-      {{ end }}
+  {{ end }}
   {{ end }}
 
   {{ with .Params.description }}
@@ -62,10 +62,9 @@
 
   <meta property="twitter:title" content="{{ .Title }}">
   {{ if .Params.image }}
-  <meta property="twitter:image" content="{{ .Site.BaseURL }}media/{{ .Params.image }}">
+    <meta property="twitter:image" content="{{ .Site.BaseURL }}media/{{ .Params.image }}">
   {{ end }}
   <!-- End of Twitter -->
-
 
   {{ partial "favicons.html" . }}
 
@@ -73,6 +72,11 @@
   {{ $style := resources.Get "css/site.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}">
   {{ with .OutputFormats.Get "rss" -}}
-      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
+
+  {{ if .Site.Params.google_analytics }}
+  {{ partial "google_analytics.html" . }}
+  {{ end }}
+
 </head>
